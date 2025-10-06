@@ -3,43 +3,23 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Music Player</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-      background: #f4f4f4;
-    }
-    .player-container {
-      text-align: center;
-    }
-    audio {
-      width: 300px;
-    }
-  </style>
+  <title>Background Music</title>
 </head>
 <body>
-  <div class="player-container">
-    <h2>Now Playing:</h2>
-    <audio id="audioPlayer" controls autoplay loop>
-      <source src="funny-music-319843.mp3" type="audio/mpeg">
-      Your browser does not support the audio element.
-    </audio>
-    <p>If the audio does not autoplay, press play manually.</p>
-  </div>
+
+  <!-- Hidden audio element -->
+  <audio id="bgMusic" autoplay loop>
+    <source src="funny-music-319843.mp3" type="audio/mpeg">
+  </audio>
 
   <script>
-    // Try to autoplay programmatically (some browsers block autoplay unless muted or user interaction)
-    const audio = document.getElementById('audioPlayer');
-    audio.volume = 1.0;
-
+    const audio = document.getElementById('bgMusic');
+    
+    // Try autoplay
     audio.play().catch(() => {
-      console.log("Autoplay was prevented by the browser. User may need to press play.");
+      console.log("Autoplay blocked — will start after user taps page.");
     });
   </script>
+
 </body>
 </html>

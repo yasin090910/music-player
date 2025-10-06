@@ -4,20 +4,31 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Background Music</title>
+  <style>
+    audio {
+      opacity: 0;      /* Make it invisible */
+      width: 1px;      /* Tiny size */
+      height: 1px;
+      position: fixed; /* Prevent layout shift */
+      bottom: 0;
+      left: 0;
+    }
+  </style>
 </head>
 <body>
 
-  <!-- Hidden audio element -->
+  <!-- Audio element (hidden but functional) -->
   <audio id="bgMusic" autoplay loop>
     <source src="funny-music-319843.mp3" type="audio/mpeg">
   </audio>
 
   <script>
     const audio = document.getElementById('bgMusic');
-    
-    // Try autoplay
+    audio.volume = 1.0;
+
+    // Try to autoplay
     audio.play().catch(() => {
-      console.log("Autoplay blocked — will start after user taps page.");
+      console.log("Autoplay blocked. The user may need to tap the page once.");
     });
   </script>
 
